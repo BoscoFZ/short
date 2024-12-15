@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Bypass All Shortlinks Debloated - Custom
 // @namespace
-// @version     0.1
+// @version     1.0
 // @description 
 // @author      Me
 // @icon        https://cdn-icons-png.flaticon.com/512/14025/14025295.png
