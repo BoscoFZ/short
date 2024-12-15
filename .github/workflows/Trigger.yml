@@ -49,6 +49,6 @@ jobs:
             github.rest.actions.createWorkflowDispatch({
               owner: "BoscoFZ",
               repo: "makeshortuserscript",
-              workflow_id: "ci.yml",
+              workflow_id: "convert.yml",
               ref: "main"
             })
