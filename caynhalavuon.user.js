@@ -1,9 +1,10 @@
 // ==UserScript==
-// @name        Me - Websites - Auto-click bypass AdLinks Update
+// @name        Bypass All Shortlinks Debloated - Custom
 // @namespace
 // @version     0.1
 // @description 
 // @author      Me
+// @icon        https://cdn-icons-png.flaticon.com/512/14025/14025295.png
 
 // @match *://*.adbypass.org/*
 
@@ -121,7 +122,7 @@
 
 
     // Sử dụng hàm chuyển hướng
-    //adbypass.org
+    //adbypass.org dành cho link linkvertise
     /adbypass.org/.test(url) ? afterDOMLoaded(function() {redirectIfExists('#open-bypassed-link')}) : null;
 
 
