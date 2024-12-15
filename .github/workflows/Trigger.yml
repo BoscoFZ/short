@@ -47,8 +47,8 @@ jobs:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             github.rest.actions.createWorkflowDispatch({
-              owner: "makeshortuserscript",
-              repo: "${{ secrets.repo }}",
+              owner: "BoscoFZ",
+              repo: "makeshortuserscript",
               workflow_id: "ci.yml",
               ref: "main"
             })
