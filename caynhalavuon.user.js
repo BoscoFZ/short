@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name        Bypass All Shortlinks Debloated - Custom
 // @namespace
-// @version     1.0
+// @version     2.0
 // @description 
 // @author      Me
 // @icon        https://cdn-icons-png.flaticon.com/512/14025/14025295.png
 
 // @match *://*.adbypass.org/*
+// @match *://*.droplink.co/*
 
+// @grant       GM_setClipboard
 // ==/UserScript==
 
 (function() {
@@ -120,10 +122,31 @@
         Object.defineProperty(document, 'hidden', {get() {return false;}});
     };
 
+    // Thêm hàm mới để copy URL và redirect sử dụng GM_setClipboard
+    const copyAndRedirect = (selector) => {
+        let intervalId = setInterval(() => {
+            let button = document.querySelector(selector);
+            if (button && button.href && isValidUrl(button.href)) {
+                clearInterval(intervalId);
+                // Copy URL using GM_setClipboard
+                try {
+                    GM_setClipboard(button.href);
+                    console.log('URL đã được copy: ' + button.href);
+                } catch (err) {
+                    console.error('Không thể copy URL: ', err);
+                }
+                // Redirect sau khi copy
+                redirect(button.href);
+            }
+        }, 500);
+    };
 
-    // Sử dụng hàm chuyển hướng
-    //adbypass.org dành cho link linkvertise
-    /adbypass.org/.test(url) ? afterDOMLoaded(function() {redirectIfExists('#open-bypassed-link')}) : null;
+
+    //adbypass.org dành cho link linkvertise - Sử dụng hàm chuyển hướng
+    /adbypass.org/.test(url) ? afterWindowLoaded(function() {redirectIfExists('#open-bypassed-link')}) : null;
+
+    //droplink.co
+    /droplink.co/.test(url) ? afterWindowLoaded(function() {redirectIfExists('.btn.btn-primary.btn-lg.get-link')}) : null;
 
 
 })();
