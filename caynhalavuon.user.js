@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Bypass All Shortlinks Debloated - Custom
 // @namespace
-// @version     3.0
+// @version     4.0
 // @description 
 // @author      Me
 // @icon        https://cdn-icons-png.flaticon.com/512/14025/14025295.png
@@ -150,10 +150,10 @@
     /droplink.co/.test(url) ? afterWindowLoaded(function() {redirectIfExists('.btn.btn-primary.btn-lg.get-link')}) : null;
 
     //newscon.org nhớ chỉnh time TimeHooker cao cao để click 1 lần là qua luôn thời gian đếm, hiện tại của site là 135s
-    /newscon\.org\/d3\//.test(url) ? afterWindowLoaded(function() {clickIfExists('.ui-h2.ui-xs-h4.ui-clamp3')}) : null;
-    /newscon\.org/.test(url) && !/newscon\.org\/d3\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div._th-item._item-x2')}) : null;
-    /newscon\.org/.test(url) && !/newscon\.org\/d3\//.test(url) ? afterWindowLoaded(function() {clickIfExists('#snippetLink > a:nth-child(1)')}) : null;
-    /newscon\.org/.test(url) && !/newscon\.org\/d3\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div.screenContent.surface-content > div > a')}) : null;    
+    /newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('.ui-h2.ui-xs-h4.ui-clamp3')}) : null;
+    /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div._th-item._item-x2')}) : null;
+    /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('#snippetLink > a:nth-child(1)')}) : null;
+    /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div.screenContent.surface-content > div > a')}) : null;  
 
 
 })();
