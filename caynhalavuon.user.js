@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Bypass All Shortlinks Debloated - Custom
 // @namespace
-// @version     4.0
+// @version     5.0
 // @description 
 // @author      Me
 // @icon        https://cdn-icons-png.flaticon.com/512/14025/14025295.png
@@ -9,6 +9,7 @@
 // @match *://*.adbypass.org/*
 // @match *://*.droplink.co/*
 // @match *://*newscon.org/*
+// @match *://mangadistrict.*/*
 
 // @grant       GM_setClipboard
 // ==/UserScript==
@@ -153,7 +154,9 @@
     /newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('.ui-h2.ui-xs-h4.ui-clamp3')}) : null;
     /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div._th-item._item-x2')}) : null;
     /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('#snippetLink > a:nth-child(1)')}) : null;
-    /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div.screenContent.surface-content > div > a')}) : null;  
+    /newscon\.org/.test(url) && !/newscon\.org\/d\d+\//.test(url) ? afterWindowLoaded(function() {clickIfExists('div.screenContent.surface-content > div > a')}) : null;
 
+    //mangadistrict.com
+    /mangadistrict.com/.test(url) ? afterWindowLoaded(function() {clickIfExists('button.btn.btn-primary.btn-adult-confirm')}) : null;
 
 })();
