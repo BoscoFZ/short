@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Bypass All Shortlinks Debloated - Custom
 // @namespace
-// @version     5.0
+// @version     6.0
 // @description 
 // @author      Me
 // @icon        https://cdn-icons-png.flaticon.com/512/14025/14025295.png
@@ -10,6 +10,7 @@
 // @match *://*.droplink.co/*
 // @match *://*newscon.org/*
 // @match *://mangadistrict.*/*
+// @match *://*.google.com/search*
 
 // @grant       GM_setClipboard
 // ==/UserScript==
@@ -158,5 +159,8 @@
 
     //mangadistrict.com
     /mangadistrict.com/.test(url) ? afterWindowLoaded(function() {clickIfExists('button.btn.btn-primary.btn-adult-confirm')}) : null;
+
+    //google.com/search Tự click dịch sau khi xài SearchbyImage
+    /google\.com\/search/.test(url) ? afterWindowLoaded(function() {clickIfExists('button.J8XUMb.jGdiBc')}) : null;
 
 })();
